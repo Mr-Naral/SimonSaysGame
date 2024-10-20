@@ -8,10 +8,20 @@ let highestlevel=0;
 let btns=["yellow","red","purple","green"];
 
 let h2=document.querySelector("h2");
+let p=document.querySelector("p");
 let btn=document.querySelector(".btn");
-console.dir(btn);
 
-document.addEventListener("keypress",function(){
+let start=document.querySelector(".start-button");
+
+start.addEventListener("click",function(){
+    if(start.innerText=="restart"){
+        start.innerText="start";
+        reset();
+    }else{
+        start.innerText="restart";
+    }
+    p.innerText="Game is started...";
+
     if(started==false){
         console.log("game is started...");
         started=true;
@@ -67,7 +77,7 @@ function checkAns(idx){
         }
     }else{
         highestlevel=(highestlevel<level)?level:highestlevel;
-        h2.innerHTML=`Game Over! Your Score was <b>${level}</b> <br> Your Highest Score was <b>${highestlevel}</b> <br> Press any key to restart the game...`;
+        h2.innerHTML=`Game Over! Your Score was <b>${level}</b> <br> Your Highest Score was <b>${highestlevel}</b> <br> Please restart the game...`;
         document.querySelector("body").style.backgroundColor="red";
         setTimeout(function(){
             document.querySelector("body").style.backgroundColor="antiquewhite";
@@ -82,6 +92,12 @@ for(btn of allBtns){
 }
 
 function reset(){
+    if(start.innerText=="restart"){
+        start.innerText="start";
+        reset();
+    }else{
+        start.innerText="restart";
+    }
     started=false;
     gameSeq=[];
     userSeq=[];

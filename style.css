@@ -2,16 +2,22 @@ body{
     text-align: center;
     background-color:antiquewhite;
 }
-
+button{
+    width: 10rem;
+    height: 3.5rem;
+    color: black;
+    background-color: orange;
+    border: 5px solid black;
+}
 .box-container{
     display:flex;
     justify-content: center;
 }
 
 .btn{
-    height: 200px;
-    width:200px;
-    border: 10px solid black;
+    height:12rem;
+    width:12rem;
+    border: 5px solid black;
     border-radius: 20%;
     margin: 2rem;
 }
